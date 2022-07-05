@@ -15,9 +15,8 @@ public class BankSystem {
 
     public void welcomeScreen() {
         int userInput;
-        dataBase.select();
+        
         while (true) {
-
             displayScreen();
             userInput = scanner.nextInt();
             if (state == State.MAIN) {
