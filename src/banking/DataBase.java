@@ -145,27 +145,4 @@ public class DataBase {
             ex.printStackTrace();
         }
     }
-
-    public void select() {
-        try (Connection connection = DriverManager.getConnection(url)) {
-            Statement statement = connection.createStatement();
-            String query =
-                    "SELECT id, number, pin, balance " +
-                            "FROM card " +
-                            "ORDER BY id";
-            ResultSet resultSet = statement.executeQuery(query);
-
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String number = resultSet.getString("number");
-                String pin = resultSet.getString("pin");
-                int balance = resultSet.getInt("balance");
-                System.out.println(id + "\t| " + number + "\t| " + pin + "\t| " + balance);
-            }
-            resultSet.close();
-            statement.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 }
